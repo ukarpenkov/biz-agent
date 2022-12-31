@@ -1,7 +1,11 @@
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+
 function App() {
   return (
     <div>
-      <h1>init</h1>
+      <Header />
+      <Footer />
     </div>
   );
 }
