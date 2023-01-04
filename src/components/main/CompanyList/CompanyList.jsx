@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import CompanyCard from './CompanyCard'
-
+import CompanyCard from '../CompanyCard/CompanyCard'
+import './style.css'
 
 
 const CompanyList = () => {
@@ -20,7 +20,7 @@ const CompanyList = () => {
             })
     }, [])
 
-    return <div>
+    return <div className='company-list'>
         {info.map(item => <CompanyCard {...item} key={item.company_id} />)}
     </div>
 }
