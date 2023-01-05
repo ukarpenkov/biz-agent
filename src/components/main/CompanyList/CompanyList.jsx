@@ -7,12 +7,11 @@ const CompanyList = () => {
     const [info, setInfo] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost", {
-            method: 'POST',
+        fetch("http://localhost/index.php", {
+            method: 'GET',
             header: {
                 'Content-Type': 'text/html; charset=utf-8'
             },
-            body: JSON.stringify({ action: 1 })
         })
             .then(response => response.text())
             .then(response => {

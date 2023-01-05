@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './style.css'
 
 const Header = () => {
     return <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark">
@@ -13,7 +14,7 @@ const Header = () => {
             <div className="navbar-nav">
                 <Link to='/' className="nav-item nav-link" href="#">Комании</Link>
                 <Link to='login' className="nav-item nav-link" href="#">Войти</Link>
-                <a className="nav-item nav-link" href="#">Регистрация</a>
+                <Link to='reg' className="nav-item nav-link" href="#">Регистрация</Link>
             </div>
         </div>
     </nav>
