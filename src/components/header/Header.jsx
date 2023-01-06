@@ -16,6 +16,7 @@ const Header = () => {
                 <Link to='login' className="nav-item nav-link" href="#">Войти</Link>
                 <Link to='reg' className="nav-item nav-link" href="#">Регистрация</Link>
             </div>
+
         </div>
     </nav>
 

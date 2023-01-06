@@ -6,7 +6,8 @@ const Registration = () => {
     const [mail, setMail] = useState('')
     const [pass, setPass] = useState('')
 
-    const handleSubmit = () => {
+
+    const handleSubmit = (e) => {
         if (name.length === 0) {
             alert('Введите имя')
         }
@@ -23,7 +24,7 @@ const Registration = () => {
             fData.append('name', name)
             fData.append('mail', mail)
             fData.append('pass', pass)
-            console.log(fData)
+
 
             fetch(url, {
                 method: 'POST',
@@ -32,12 +33,18 @@ const Registration = () => {
                 },
                 body: fData
             })
-                .then(response => console.log(response.data))
+                .then(response => console.log(response))
                 .catch(error => alert(error))
 
+            alert('Регистрация выполнена!')
 
         }
+        e.preventDefault()
+        setName('')
+        setMail('')
+        setPass('')
     }
+
 
     return <div className='login-page'>
 
