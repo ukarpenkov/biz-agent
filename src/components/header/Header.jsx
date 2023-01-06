@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
 
-const Header = () => {
+
+const Header = ({ state }) => {
+    let userNameAtHeader = <Link to='/' className="nav-item nav-link">Привет, {state}</Link>
+
     return <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark">
         <Link to='/' className="navbar-brand" href="#">
             BIZ AGENT
@@ -15,10 +18,10 @@ const Header = () => {
                 <Link to='/' className="nav-item nav-link" href="#">Комании</Link>
                 <Link to='login' className="nav-item nav-link" href="#">Войти</Link>
                 <Link to='reg' className="nav-item nav-link" href="#">Регистрация</Link>
+                {state[0] ? userNameAtHeader : null}
             </div>
-
         </div>
-    </nav>
+    </nav >
 
 }
 

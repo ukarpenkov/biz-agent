@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './style.css'
+import { LoginContext } from './login-context'
 
 const Login = () => {
     const [mail, setMail] = useState('')
     const [pass, setPass] = useState('')
-    const [name, setName] = useState('')
+    const { dispatch } = useContext(LoginContext)
 
     const handleSubmit = () => {
         if (mail.length === 0) {
@@ -27,7 +28,10 @@ const Login = () => {
                 },
                 body: fData
             })
-                .then(response => response.text()).then(response => setName((response)))
+                .then(response => response.text()).then(response => dispatch({
+                    type: 'LOGIN',
+                    payload: [...response]
+                }))
                 .catch(error => alert(error))
         }
     }
@@ -42,7 +46,7 @@ const Login = () => {
                 <input type="password" id="pass" name='pass' className="form-control" onChange={(e) => setPass(e.target.value)} />
                 <label className="form-label" htmlFor="pass">Пароль</label>
             </div>
-            <p>пришел - {name}</p>
+
             <button type="button" name="send" id="send" value="SEND" className="btn btn-primary btn-block mb-4" onClick={handleSubmit}>Войти</button>
         </form>
     </div>
