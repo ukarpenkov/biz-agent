@@ -15,10 +15,10 @@ const Header = ({ state }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-                <Link to='/' className="nav-item nav-link" href="#">Комании</Link>
+                <Link to='/' className="nav-item nav-link" href="#">Компании</Link>
                 <Link to='login' className="nav-item nav-link" href="#">Войти</Link>
                 <Link to='reg' className="nav-item nav-link" href="#">Регистрация</Link>
-                {state[0] ? userNameAtHeader : null}
+                {state[0] ? userNameAtHeader : <Link to='/' className="nav-item nav-link">Вы не авторизованы</Link>}
             </div>
         </div>
     </nav >

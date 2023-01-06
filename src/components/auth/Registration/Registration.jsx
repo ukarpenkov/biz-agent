@@ -8,6 +8,7 @@ const Registration = () => {
 
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         if (name.length === 0) {
             alert('Введите имя')
         }
@@ -34,35 +35,37 @@ const Registration = () => {
                 body: fData
             })
                 .then(response => console.log(response))
-                .catch(error => alert(error))
+                .catch(error => alert(error));
 
+            setName('')
+            setMail('')
+            setPass('')
             alert('Регистрация выполнена!')
 
+
         }
-        e.preventDefault()
-        setName('')
-        setMail('')
-        setPass('')
+
+
     }
 
 
     return <div className='login-page'>
+        <form onSubmit={(event) => handleSubmit(event)}>
+            <div className="form-outline mb-4">
+                <input type="text" id="name" name='name' className="form-control" onChange={(e) => setName(e.target.value)} />
+                <label className="form-label" htmlFor="name">Ваше имя</label>
+            </div>
+            <div className="form-outline mb-4">
+                <input type="email" id="mail" name='mail' className="form-control" onChange={(e) => setMail(e.target.value)} />
+                <label className="form-label" htmlFor="mail">Email адрес</label>
+            </div>
+            <div className="form-outline mb-4">
+                <input type="password" id="pass" name='pass' className="form-control" onChange={(e) => setPass(e.target.value)} />
+                <label className="form-label" htmlFor="pass">Пароль</label>
+            </div>
 
-        <div className="form-outline mb-4">
-            <input type="text" id="name" name='name' className="form-control" onChange={(e) => setName(e.target.value)} />
-            <label className="form-label" htmlFor="name">Ваше имя</label>
-        </div>
-        <div className="form-outline mb-4">
-            <input type="email" id="mail" name='mail' className="form-control" onChange={(e) => setMail(e.target.value)} />
-            <label className="form-label" htmlFor="mail">Email адрес</label>
-        </div>
-        <div className="form-outline mb-4">
-            <input type="password" id="pass" name='pass' className="form-control" onChange={(e) => setPass(e.target.value)} />
-            <label className="form-label" htmlFor="pass">Пароль</label>
-        </div>
-
-        <button type="button" name="send" id="send" value="SEND" className="btn btn-primary btn-block mb-4" onClick={handleSubmit}>Зарегистрироваться</button>
-
+            <button type="submit" name="send" id="send" value="SEND" className="btn btn-primary btn-block mb-4">Зарегистрироваться</button>
+        </form>
     </div>
 }
 
