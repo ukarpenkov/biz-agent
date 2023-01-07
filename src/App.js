@@ -23,9 +23,10 @@ function App() {
       }}>
         <Header state={state} />
         <Routes>
-          <Route index element={<Main />} />
-          <Route path="login" element={<Login />} />
-          <Route path="reg" element={<Registration />} />
+          <Route path="companies/*" element={<Main />} />
+          <Route exact path="login" element={<Login />} />
+          <Route exact path="reg" element={<Registration />} />
+
         </Routes>
         <Footer />
       </LoginContext.Provider>
