@@ -63,7 +63,7 @@ const AddCompanyForm = () => {
             <label htmlFor="ceo">Генеральный директор</label>
             <input type="text" className="form-control" name='ceo' id="ceo" placeholder="Генеральный директор" onChange={(e) => setCeo(e.target.value)} />
         </div>
-        <button type="button" className="btn btn-danger add-company-btn">Добавить</button>
+        <button type="submit" className="btn btn-danger add-company-btn">Добавить</button>
     </form>
 }
 

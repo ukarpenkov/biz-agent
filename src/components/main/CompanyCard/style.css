@@ -9,3 +9,7 @@
   color: #fff;
   border: none;
 }
+
+.company-card__item {
+  text-decoration: none;
+}
