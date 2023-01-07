@@ -1,8 +1,13 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import AddCompanyForm from "../form/AddCompanyForm"
+
 
 const AddCompanyButton = () => {
     const [visible, setVisible] = useState(false)
+
+
+
+
     function handleVisibleForm() {
         !visible ? setVisible(true) : setVisible(false)
         setTimeout(function () {
@@ -12,7 +17,7 @@ const AddCompanyButton = () => {
 
 
     return <>
-        <button className="btn btn-warning" onClick={handleVisibleForm}>Новая компания</button>
+        <button disabled={false} className="btn btn-warning" onClick={handleVisibleForm}>Новая компания</button>
         {visible ? <AddCompanyForm /> : null}
     </>
 }

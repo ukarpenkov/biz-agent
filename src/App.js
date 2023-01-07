@@ -16,9 +16,11 @@ import { CompanyContext } from "./components/main/company-context";
 import companyReducer from "./components/main/company-reducer";
 
 
+
 function App() {
   const [state, dispatch] = useReducer(loginReducer, [])
   const [company, send] = useReducer(companyReducer, [])
+
 
   return (
     <Router>
@@ -33,7 +35,7 @@ function App() {
             <Route path="companies/*" element={<Main />} />
             <Route exact path="login" element={<Login />} />
             <Route exact path="reg" element={<Registration />} />
-            <Route path="companies/:id" element={<CurrentCompany company={company} />} />
+            <Route path="companies/:id/*" element={<CurrentCompany {...company[company.length - 1]} />} />
           </Routes>
           <Footer />
         </CompanyContext.Provider>

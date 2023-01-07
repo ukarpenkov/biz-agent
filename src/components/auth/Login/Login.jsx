@@ -1,11 +1,13 @@
-import { useContext, useState } from 'react'
+import { useContext, useReducer, useState } from 'react'
 import './style.css'
 import { LoginContext } from './login-context'
+
 
 const Login = () => {
     const [mail, setMail] = useState('')
     const [pass, setPass] = useState('')
     const { dispatch } = useContext(LoginContext)
+
 
     const handleSubmit = () => {
         if (mail.length === 0) {
@@ -33,7 +35,10 @@ const Login = () => {
                     payload: [...response]
                 }))
                 .catch(error => alert(error))
+
+
         }
+
     }
 
     return <div className='login-page'>
