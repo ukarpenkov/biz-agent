@@ -13,3 +13,8 @@
 .company-card__item {
   text-decoration: none;
 }
+
+.current-company_card {
+  background-color: #212529;
+  color: #fff;
+}

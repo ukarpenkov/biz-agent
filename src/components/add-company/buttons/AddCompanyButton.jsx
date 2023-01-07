@@ -5,6 +5,9 @@ const AddCompanyButton = () => {
     const [visible, setVisible] = useState(false)
     function handleVisibleForm() {
         !visible ? setVisible(true) : setVisible(false)
+        setTimeout(function () {
+            window.scrollTo(0, document.body.scrollHeight);
+        }, 500);
     }
 
 

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './style.css'
-import { Link, Route, Router, Routes, useRoutes } from 'react-router-dom'
-import CurrentCompany from './CurrentCompany'
+import { Link } from 'react-router-dom'
+import { CompanyContext } from '../company-context'
 
 
 
@@ -9,10 +9,12 @@ import CurrentCompany from './CurrentCompany'
 
 
 const CompanyCard = ({ company_id, name, address, phone, ceo }) => {
+    const { send } = useContext(CompanyContext)
 
-
-
-    return <ul className="list-group" onClick={() => console.log('fff')}>
+    return <ul className="list-group" onClick={() => send({
+        type: 'TRANSITION',
+        payload: { company_id, name, address, phone, ceo }
+    })}>
         <Link to={company_id} className='company-card__item' >
             <li className="list-group-item"><h6>{name}</h6></li>
             <li className="list-group-item"> Адрес: {address}</li>
@@ -20,9 +22,6 @@ const CompanyCard = ({ company_id, name, address, phone, ceo }) => {
             <li className="list-group-item">Генеральный директор: {ceo}</li>
         </Link>
 
-        <Routes>
-            <Route exact path={company_id} element={<CurrentCompany />} />
-        </Routes>
     </ul>
 
 }
