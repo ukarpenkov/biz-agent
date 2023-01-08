@@ -3,18 +3,18 @@ import Comment from './Comment'
 import './style.css'
 import { Link } from 'react-router-dom';
 
-const CommentBlock = ({ props }) => {
-
+const CommentBlock = (props) => {
 
     const [commentTextInArea, setCommentTextInArea] = useState('')
     const [comments, setComments] = useState([])
 
 
-
     useEffect(() => {
         const url = "http://localhost/getcomments.php"
         let fData = new FormData()
-        fData.append('company_id', props.company_id)
+        fData.append('company_id', props.props.company_id)
+        fData.append('category', props.categoryComments)
+
 
         fetch(url, {
             method: 'POST',
@@ -41,9 +41,10 @@ const CommentBlock = ({ props }) => {
         else {
             const url = "http://localhost/addcomments.php"
             let fData = new FormData()
-            fData.append('user_name', props.userName[0].join(''))
-            fData.append('company_id', props.company_id)
+            fData.append('user_name', props.props.userName[0].join(''))
+            fData.append('company_id', props.props.company_id)
             fData.append('comment_text', commentTextInArea)
+            fData.append('category', props.categoryComments)
 
             fetch(url, {
                 method: 'POST',
@@ -67,7 +68,7 @@ const CommentBlock = ({ props }) => {
     const textArea = <div className="bg-dark mt-2  comment-text">
         <div className="d-flex flex-row align-items-start">
             <img alt="ваше фото" className="rounded-circle" src="https://img.icons8.com/ios-glyphs/30/null/user--v1.png" width="50" />
-            <p>{props.userName}:&nbsp;</p>
+            <p>{props.props.userName}:&nbsp;</p>
             <textarea
                 name="comment"
                 type="text"
@@ -87,7 +88,7 @@ const CommentBlock = ({ props }) => {
                 <div className="d-flex flex-column comment-section">
                     <div className="bg-dark p-3">
                         {comments.map(comment => <Comment {...comment} key={comment.comment_id} />)}
-                        {(props.userName.length) ? textArea : <Link to='/login' className="btn btn-primary btn-sm shadow-none">Авторизируйтесь, для написания комметария</Link>}
+                        {(props.props.userName.length) ? textArea : <Link to='/login' className="btn btn-primary btn-sm shadow-none">Авторизируйтесь, для написания комметария</Link>}
 
                     </div>
 

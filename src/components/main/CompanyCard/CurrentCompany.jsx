@@ -11,22 +11,26 @@ const CurrentCompany = (props) => {
     const [currentCeo] = useState(props.ceo)
 
     const [isCompanyCommnetsVisible, setIsCompanyCommnetsVisible] = useState(false)
-    // const [isAddressCommnetsVisible, setIsAddressCommnetsVisible] = useState(false)
-    // const [isPhoneCommnetsVisible, setIsPhoneCommnetsVisible] = useState(false)
-    // const [isCeoCommnetsVisible, setIsCeoCommnetsVisible] = useState(false)
+    const [isAddressCommnetsVisible, setIsAddressCommnetsVisible] = useState(false)
+    const [isPhoneCommnetsVisible, setIsPhoneCommnetsVisible] = useState(false)
+    const [isCeoCommnetsVisible, setIsCeoCommnetsVisible] = useState(false)
+    const [isCommonCommnetsVisible, setIsCommonCommnetsVisible] = useState(false)
 
     const toggleCompanyComments = () => {
         !isCompanyCommnetsVisible ? setIsCompanyCommnetsVisible(true) : setIsCompanyCommnetsVisible(false)
     }
-    // const toggleAddressComments = () => {
-    //     !isAddressCommnetsVisible ? setIsAddressCommnetsVisible(true) : setIsAddressCommnetsVisible(false)
-    // }
-    // const togglePhoneComments = () => {
-    //     !isPhoneCommnetsVisible ? setIsPhoneCommnetsVisible(true) : setIsPhoneCommnetsVisible(false)
-    // }
-    // const toggleCeoComments = () => {
-    //     !isCeoCommnetsVisible ? setIsCeoCommnetsVisible(true) : setIsCeoCommnetsVisible(false)
-    // }
+    const toggleAddressComments = () => {
+        !isAddressCommnetsVisible ? setIsAddressCommnetsVisible(true) : setIsAddressCommnetsVisible(false)
+    }
+    const togglePhoneComments = () => {
+        !isPhoneCommnetsVisible ? setIsPhoneCommnetsVisible(true) : setIsPhoneCommnetsVisible(false)
+    }
+    const toggleCeoComments = () => {
+        !isCeoCommnetsVisible ? setIsCeoCommnetsVisible(true) : setIsCeoCommnetsVisible(false)
+    }
+    const toggleCommonComments = () => {
+        !isCommonCommnetsVisible ? setIsCommonCommnetsVisible(true) : setIsCommonCommnetsVisible(false)
+    }
 
 
 
@@ -47,12 +51,37 @@ const CurrentCompany = (props) => {
                 className="btn btn-secondary"
                 onClick={toggleCompanyComments}
             >Показать/скрыть комментарии о компании ⮃</button>
-            {isCompanyCommnetsVisible ? <CommentBlock props={props} categoryComments='aaa' /> : null}
+            {isCompanyCommnetsVisible ? <CommentBlock props={props} categoryComments='companyNameCommnets' /> : null}
             <p className="card-text">{currentAddress}</p>
+            <button
+                to='company-comments'
+                className="btn btn-secondary"
+                onClick={toggleAddressComments}
+            >Показать/скрыть комментарии об адресе ⮃</button>
+            {isAddressCommnetsVisible ? <CommentBlock props={props} categoryComments='companyAddressCommnets' /> : null}
             <p className="card-text">{currentPhone}</p>
+            <button
+                to='company-comments'
+                className="btn btn-secondary"
+                onClick={togglePhoneComments}
+            >Показать/скрыть комментарии о телефоне ⮃</button>
+            {isPhoneCommnetsVisible ? <CommentBlock props={props} categoryComments='companyPhoneCommnets' /> : null}
             <p className="card-text">{currentCeo}</p>
+            <button
+                to='company-comments'
+                className="btn btn-secondary"
+                onClick={toggleCeoComments}
+            >Показать/скрыть комментарии о директоре ⮃</button>
+            {isCeoCommnetsVisible ? <CommentBlock props={props} categoryComments='companyCeoCommnets' /> : null}
 
+            <div>--------------------------------------------------------------------------------------------------------</div>
 
+            <button
+                to='company-comments'
+                className="btn btn-info"
+                onClick={toggleCommonComments}
+            >Показать/скрыть отзывы о компании ⮃</button>
+            {isCommonCommnetsVisible ? <CommentBlock props={props} categoryComments='companyCommonCommnets' /> : null}
         </div>
     </div>
 }
