@@ -1,25 +1,43 @@
+import { useState } from 'react'
 import Comment from './Comment'
 import './style.css'
+import { Link } from 'react-router-dom';
 
-const CommentBlock = () => {
+const CommentBlock = ({ userName }) => {
+    console.log(userName);
+    const [commentText, setCommentText] = useState('')
 
 
+
+    const clearCommentText = () => {
+        setCommentText('')
+    }
+
+    const textArea = <div className="bg-dark mt-2  comment-text">
+        <div className="d-flex flex-row align-items-start">
+            <img alt="ваше фото" className="rounded-circle" src="https://img.icons8.com/ios-glyphs/30/null/user--v1.png" width="50" />
+            <p>{userName}:&nbsp;</p>
+            <textarea
+                name="comment"
+                type="text"
+                className="form-control ml-1 shadow-none textarea comment-text"
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+            ></textarea>
+        </div>
+        <div className="mt-2 text-right">
+            <button type="button" name='send' className="btn btn-primary btn-sm shadow-none" >Отправить комментарий</button>
+            <button type="button" name='clear' className="btn btn-outline-primary btn-sm ml-1 shadow-none" onClick={clearCommentText}>Очистить поле</button></div>
+    </div>
 
     return <div className="container comment-container">
         <div className="d-flex justify-content-center row">
             <div className="col-md-8">
                 <div className="d-flex flex-column comment-section">
                     <div className="bg-dark p-3">
-                        <Comment />
-                        <Comment />
+                        <Comment text={commentText} />
+                        {(userName.length) ? textArea : <Link to='/login' className="btn btn-primary btn-sm shadow-none">Авторизируйтесь, для написания комметария</Link>}
 
-                        <div className="bg-dark mt-2  comment-text">
-                            <div className="d-flex flex-row align-items-start">
-                                <img alt="ваше фото" className="rounded-circle" src="https://img.icons8.com/ios-glyphs/30/null/user--v1.png" width="50" />
-                                <textarea className="form-control ml-1 shadow-none textarea comment-text"></textarea>
-                            </div>
-                            <div className="mt-2 text-right"><button className="btn btn-primary btn-sm shadow-none" type="button">Post comment</button><button className="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
-                        </div>
                     </div>
 
                 </div>

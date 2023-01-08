@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import AddCompanyForm from "../form/AddCompanyForm"
 
 
@@ -7,7 +7,7 @@ const AddCompanyButton = (state) => {
     const [visible, setVisible] = useState(false)
     const [disable, setDisable] = useState(false)
 
-    console.log(state)
+
 
     useEffect(() => {
         if (Object.keys(state).length !== 0) {

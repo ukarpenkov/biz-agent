@@ -35,7 +35,7 @@ function App() {
             <Route path="companies/*" element={<Main state={state} />} />
             <Route exact path="login" element={<Login />} />
             <Route exact path="reg" element={<Registration />} />
-            <Route path="companies/:id/*" element={<CurrentCompany {...company[company.length - 1]} />} />
+            <Route path="companies/:id/*" element={<CurrentCompany {...company[company.length - 1]} userName={state} />} />
           </Routes>
           <Footer />
         </CompanyContext.Provider>

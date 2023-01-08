@@ -3,12 +3,12 @@ import CommentBlock from "./CommentBlock"
 import { useState } from "react"
 
 
-const CurrentCompany = ({ company_id, name, address, phone, ceo }) => {
+const CurrentCompany = (props) => {
 
-    const [currentName, setCurrentName] = useState(name)
-    const [currentAddress, setCurrentAddress] = useState(address)
-    const [currentPhone, setCurrentPhone] = useState(phone)
-    const [currentCeo, setCurrentCeo] = useState(ceo)
+    const [currentName] = useState(props.name)
+    const [currentAddress] = useState(props.address)
+    const [currentPhone] = useState(props.phone)
+    const [currentCeo] = useState(props.ceo)
 
     const [isCompanyCommnetsVisible, setIsCompanyCommnetsVisible] = useState(false)
     const [isAddressCommnetsVisible, setIsAddressCommnetsVisible] = useState(false)
@@ -48,7 +48,7 @@ const CurrentCompany = ({ company_id, name, address, phone, ceo }) => {
                 className="btn btn-secondary"
                 onClick={toggleCompanyComments}
             >Показать/скрыть комментарии о компании ⮃</button>
-            {isCompanyCommnetsVisible ? <CommentBlock /> : null}
+            {isCompanyCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
 
             <p className="card-text">{currentAddress}</p>
             <button
@@ -56,7 +56,7 @@ const CurrentCompany = ({ company_id, name, address, phone, ceo }) => {
                 className="btn btn-secondary"
                 onClick={toggleAddressComments}
             >Показать/скрыть комментарии об адресе ⮃</button>
-            {isAddressCommnetsVisible ? <CommentBlock /> : null}
+            {isAddressCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
 
             <p className="card-text">{currentPhone}</p>
             <button
@@ -64,7 +64,7 @@ const CurrentCompany = ({ company_id, name, address, phone, ceo }) => {
                 className="btn btn-secondary"
                 onClick={togglePhoneComments}
             >Показать/скрыть комментарии о телефоне ⮃</button>
-            {isPhoneCommnetsVisible ? <CommentBlock /> : null}
+            {isPhoneCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
 
 
             <p className="card-text">{currentCeo}</p>
@@ -73,7 +73,7 @@ const CurrentCompany = ({ company_id, name, address, phone, ceo }) => {
                 className="btn btn-secondary"
                 onClick={toggleCeoComments}
             >Показать/скрыть комментарии о директоре ⮃</button>
-            {isCeoCommnetsVisible ? <CommentBlock /> : null}
+            {isCeoCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
 
         </div>
     </div>
