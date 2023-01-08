@@ -32,7 +32,7 @@ function App() {
         }}>
           <Header state={state} />
           <Routes>
-            <Route path="companies/*" element={<Main />} />
+            <Route path="companies/*" element={<Main state={state} />} />
             <Route exact path="login" element={<Login />} />
             <Route exact path="reg" element={<Registration />} />
             <Route path="companies/:id/*" element={<CurrentCompany {...company[company.length - 1]} />} />

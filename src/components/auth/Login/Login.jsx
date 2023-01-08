@@ -35,7 +35,8 @@ const Login = () => {
                     payload: [...response]
                 }))
                 .catch(error => alert(error))
-
+            setMail('')
+            setPass('')
 
         }
 
@@ -44,11 +45,11 @@ const Login = () => {
     return <div className='login-page'>
         <form>
             <div className="form-outline mb-4">
-                <input type="email" id="mail" name='mail' className="form-control" onChange={(e) => setMail(e.target.value)} />
+                <input type="email" id="mail" name='mail' value={mail} className="form-control" onChange={(e) => setMail(e.target.value)} />
                 <label className="form-label" htmlFor="mail">Email адрес</label>
             </div>
             <div className="form-outline mb-4">
-                <input type="password" id="pass" name='pass' className="form-control" onChange={(e) => setPass(e.target.value)} />
+                <input type="password" id="pass" name='pass' value={pass} className="form-control" onChange={(e) => setPass(e.target.value)} />
                 <label className="form-label" htmlFor="pass">Пароль</label>
             </div>
 

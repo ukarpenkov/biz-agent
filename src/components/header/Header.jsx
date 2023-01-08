@@ -4,7 +4,10 @@ import './style.css'
 
 
 const Header = ({ state }) => {
+
     let userNameAtHeader = <Link to='/' className="nav-item nav-link">Привет, {state}</Link>
+    let loginLink = <Link to='login' className="nav-item nav-link" href="#">Войти</Link>
+    let regLink = <Link to='reg' className="nav-item nav-link" href="#">Регистрация</Link>
 
     return <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark">
         <Link to='/companies' className="navbar-brand" href="#">
@@ -16,8 +19,8 @@ const Header = ({ state }) => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
                 <Link to='/companies' className="nav-item nav-link" href="#">Компании</Link>
-                <Link to='login' className="nav-item nav-link" href="#">Войти</Link>
-                <Link to='reg' className="nav-item nav-link" href="#">Регистрация</Link>
+                {state[0] ? null : loginLink}
+                {state[0] ? null : regLink}
                 {state[0] ? userNameAtHeader : <Link to='/' className="nav-item nav-link">Вы не авторизованы</Link>}
             </div>
         </div>

@@ -5,11 +5,11 @@ import './style.css'
 
 
 
-const Main = () => {
-
+const Main = ({ state }) => {
+    console.log('ьфшт', state)
     return <div className='main-page'>
         <CompanyList />
-        <AddCompanyButton />
+        <AddCompanyButton {...state} />
     </div>
 }
 

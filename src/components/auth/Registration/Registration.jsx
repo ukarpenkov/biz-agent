@@ -52,15 +52,15 @@ const Registration = () => {
     return <div className='login-page'>
         <form onSubmit={(event) => handleSubmit(event)}>
             <div className="form-outline mb-4">
-                <input type="text" id="name" name='name' className="form-control" onChange={(e) => setName(e.target.value)} />
+                <input type="text" id="name" name='name' value={name} className="form-control" onChange={(e) => setName(e.target.value)} />
                 <label className="form-label" htmlFor="name">Ваше имя</label>
             </div>
             <div className="form-outline mb-4">
-                <input type="email" id="mail" name='mail' className="form-control" onChange={(e) => setMail(e.target.value)} />
+                <input type="email" id="mail" name='mail' value={mail} className="form-control" onChange={(e) => setMail(e.target.value)} />
                 <label className="form-label" htmlFor="mail">Email адрес</label>
             </div>
             <div className="form-outline mb-4">
-                <input type="password" id="pass" name='pass' className="form-control" onChange={(e) => setPass(e.target.value)} />
+                <input type="password" id="pass" name='pass' value={pass} className="form-control" onChange={(e) => setPass(e.target.value)} />
                 <label className="form-label" htmlFor="pass">Пароль</label>
             </div>
 
