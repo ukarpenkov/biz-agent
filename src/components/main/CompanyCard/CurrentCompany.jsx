@@ -11,22 +11,22 @@ const CurrentCompany = (props) => {
     const [currentCeo] = useState(props.ceo)
 
     const [isCompanyCommnetsVisible, setIsCompanyCommnetsVisible] = useState(false)
-    const [isAddressCommnetsVisible, setIsAddressCommnetsVisible] = useState(false)
-    const [isPhoneCommnetsVisible, setIsPhoneCommnetsVisible] = useState(false)
-    const [isCeoCommnetsVisible, setIsCeoCommnetsVisible] = useState(false)
+    // const [isAddressCommnetsVisible, setIsAddressCommnetsVisible] = useState(false)
+    // const [isPhoneCommnetsVisible, setIsPhoneCommnetsVisible] = useState(false)
+    // const [isCeoCommnetsVisible, setIsCeoCommnetsVisible] = useState(false)
 
     const toggleCompanyComments = () => {
         !isCompanyCommnetsVisible ? setIsCompanyCommnetsVisible(true) : setIsCompanyCommnetsVisible(false)
     }
-    const toggleAddressComments = () => {
-        !isAddressCommnetsVisible ? setIsAddressCommnetsVisible(true) : setIsAddressCommnetsVisible(false)
-    }
-    const togglePhoneComments = () => {
-        !isPhoneCommnetsVisible ? setIsPhoneCommnetsVisible(true) : setIsPhoneCommnetsVisible(false)
-    }
-    const toggleCeoComments = () => {
-        !isCeoCommnetsVisible ? setIsCeoCommnetsVisible(true) : setIsCeoCommnetsVisible(false)
-    }
+    // const toggleAddressComments = () => {
+    //     !isAddressCommnetsVisible ? setIsAddressCommnetsVisible(true) : setIsAddressCommnetsVisible(false)
+    // }
+    // const togglePhoneComments = () => {
+    //     !isPhoneCommnetsVisible ? setIsPhoneCommnetsVisible(true) : setIsPhoneCommnetsVisible(false)
+    // }
+    // const toggleCeoComments = () => {
+    //     !isCeoCommnetsVisible ? setIsCeoCommnetsVisible(true) : setIsCeoCommnetsVisible(false)
+    // }
 
 
 
@@ -41,39 +41,17 @@ const CurrentCompany = (props) => {
             Информация о компании
         </div>
         <div className="card-body">
-
             <h5 className="card-title">{currentName}</h5>
             <button
                 to='company-comments'
                 className="btn btn-secondary"
                 onClick={toggleCompanyComments}
             >Показать/скрыть комментарии о компании ⮃</button>
-            {isCompanyCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
-
+            {isCompanyCommnetsVisible ? <CommentBlock props={props} categoryComments='aaa' /> : null}
             <p className="card-text">{currentAddress}</p>
-            <button
-                to='company-comments'
-                className="btn btn-secondary"
-                onClick={toggleAddressComments}
-            >Показать/скрыть комментарии об адресе ⮃</button>
-            {isAddressCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
-
             <p className="card-text">{currentPhone}</p>
-            <button
-                to='company-comments'
-                className="btn btn-secondary"
-                onClick={togglePhoneComments}
-            >Показать/скрыть комментарии о телефоне ⮃</button>
-            {isPhoneCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
-
-
             <p className="card-text">{currentCeo}</p>
-            <button
-                to='company-comments'
-                className="btn btn-secondary"
-                onClick={toggleCeoComments}
-            >Показать/скрыть комментарии о директоре ⮃</button>
-            {isCeoCommnetsVisible ? <CommentBlock userName={props.userName} /> : null}
+
 
         </div>
     </div>

@@ -1,4 +1,4 @@
-import { useContext, useReducer, useState } from 'react'
+import { useContext, useState } from 'react'
 import './style.css'
 import { LoginContext } from './login-context'
 
@@ -35,9 +35,10 @@ const Login = () => {
                     payload: [...response]
                 }))
                 .catch(error => alert(error))
+
             setMail('')
             setPass('')
-
+            alert('Вы успешно авторизированны!')
         }
 
     }
